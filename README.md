@@ -19,3 +19,5 @@
 1. Open Postman
 2. Create Request : GET http://127.0.0.1:5000/closest_bicycle
 3. Params : latitude : <value>, longitude : <value>
+
+Result : API Will Return Only One Bicycle Nearest To Given Parameter.
