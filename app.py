@@ -26,17 +26,20 @@ def closest_bicycle():
     try:
         latitude = float(request.args.get('latitude'))
         longitude = float(request.args.get('longitude'))
+        num_results = int(request.args.get('num_results', 1))
     except ValueError:
-        return jsonify({'error': 'Invalid latitude or longitude provided'}), 400
+        return jsonify({'error': 'Invalid latitude, longitude, or num_results provided'}), 400
 
-    closest_idx = list(idx.nearest((latitude, longitude), 1))[0]
-    closest_bicycle = bicycle_data[closest_idx]
+    closest_idxs = list(idx.nearest((latitude, longitude), num_results))
+    closest_bicycles = [bicycle_data[idx] for idx in closest_idxs]
 
-    response = {
-        'bicycle_id': closest_bicycle[2],
-        'latitude': closest_bicycle[0],
-        'longitude': closest_bicycle[1]
-    }
+    response = []
+    for bicycle in closest_bicycles:
+        response.append({
+            'bicycle_id': bicycle[2],
+            'latitude': bicycle[0],
+            'longitude': bicycle[1]
+        })
 
     return jsonify(response)
 
