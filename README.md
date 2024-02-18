@@ -21,3 +21,8 @@
 3. Params : latitude : <value>, longitude : <value>, num_results : <value>
 
 Result : API Will Return Number of Results Of Bicycles Nearest To Location. 
+
+# Plot Map
+- Enter Your API Url In map.py file & Run Python File.
+- It will create .html file which contains graph.
+- Run html file which will show location point of bicycles.
