@@ -7,7 +7,7 @@ app = Flask(__name__)
 idx = index.Index()
 
 connection = mysql.connector.connect(
-    host="172.17.0.4",
+    host="172.17.0.2",
     user="root",
     password="my-secret-pw",
     database="bicycle_data"
